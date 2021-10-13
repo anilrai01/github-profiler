@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   // purge: [],
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
@@ -20,8 +22,14 @@ module.exports = {
         DEFAULT: "#3E5DFF",
       },
       gray: {
+        DEFAULT: colors.trueGray,
         medium: "#9A9A9A",
       },
+      transparent: "transparent",
+      current: "currentColor",
+      red: colors.red,
+      blue: colors.sky,
+      yellow: colors.amber,
     },
     zIndex: {
       "n-10": "-10",
