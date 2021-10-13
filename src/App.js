@@ -1,7 +1,16 @@
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Dashboard from "./components/Dashboard";
+import LogIn from "./components/LogIn";
+
 export default function App() {
   return (
-    <div className="App">
-      <h1>I am App</h1>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Switch>
+          <Route path="/" component={LogIn} />
+          <Route path="/dashboard" component={Dashboard} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }

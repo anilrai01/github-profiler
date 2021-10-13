@@ -2,3 +2,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* FONT FAMILY ROBOT MONO */
+@font-face {
+  font-family: "RobotoMono-Light";
+  src: url(./assets/fonts/RobotoMono-Light.ttf);
+}
+@font-face {
+  font-family: "RobotoMono-Medium";
+  src: url(./assets/fonts/RobotoMono-Medium.ttf);
+}
+@font-face {
+  font-family: "RobotoMono-Regular";
+  src: url(./assets/fonts/RobotoMono-Light.ttf);
+}
+@font-face {
+  font-family: "RobotoMono-SemiBold";
+  src: url(./assets/fonts/RobotoMono-SemiBold.ttf);
+}
+@font-face {
+  font-family: "RobotoMono-Bold";
+  src: url(./assets/fonts/RobotoMono-Bold.ttf);
+}
+/* FONT FAMILY RUBIK */
+@font-face {
+  font-family: "Rubik-Light";
+  src: url(./assets/fonts/Rubik-Light.ttf);
+}
+@font-face {
+  font-family: "Rubik-Medium";
+  src: url(./assets/fonts/Rubik-Medium.ttf);
+}
+@font-face {
+  font-family: "Rubik-Regular";
+  src: url(./assets/fonts/Rubik-Regular.ttf);
+}
+@font-face {
+  font-family: "Rubik-SemiBold";
+  src: url(./assets/fonts/Rubik-SemiBold.ttf);
+}
+@font-face {
+  font-family: "Rubik-Bold";
+  src: url(./assets/fonts/Rubik-Bold.ttf);
+}
