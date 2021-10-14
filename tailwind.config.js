@@ -30,9 +30,12 @@ module.exports = {
       red: colors.red,
       blue: colors.sky,
       yellow: colors.amber,
+      white: colors.white,
     },
     zIndex: {
       "n-10": "-10",
+      10: "10",
+      20: "20",
     },
     extend: {
       spacing: {
