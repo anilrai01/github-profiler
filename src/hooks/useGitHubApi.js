@@ -15,7 +15,6 @@ export default function useGitHubApi() {
       setLoadingStat(false);
       setUserData(response.data);
       // Callback to redirect to Dashboard Route //
-      console.log("Callback: ", callback);
       callback();
     } catch (error) {
       setLoadingStat(false);

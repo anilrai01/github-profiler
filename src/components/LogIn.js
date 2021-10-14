@@ -24,7 +24,9 @@ export default function LogIn(props) {
       return;
     }
 
-    requestUserData(username, () => props.history.push("/dashboard"));
+    requestUserData(username, () =>
+      props.history.push(`/dashboard/user/${username}`)
+    );
     return;
   };
 

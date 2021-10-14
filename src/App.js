@@ -8,7 +8,7 @@ export default function App() {
       <div className="App">
         <Switch>
           <Route path="/" component={LogIn} exact />
-          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/dashboard/user/:username" component={Dashboard} />
         </Switch>
       </div>
     </BrowserRouter>
