@@ -12,7 +12,7 @@ export default function LogIn(props) {
   const [username, setUserName] = useState("");
   const [error, setError] = useState(false);
 
-  const { isLoading, requestUserData, userData } = useGitHubApi();
+  const { isLoading, requestUserData } = useGitHubApi();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -29,10 +29,6 @@ export default function LogIn(props) {
     );
     return;
   };
-
-  React.useEffect(() => {
-    console.log("UserData: ", userData);
-  }, [userData]);
 
   const handleInputChange = (e) => {
     if (error) setError(false);

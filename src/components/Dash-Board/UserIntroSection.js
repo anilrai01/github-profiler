@@ -23,7 +23,7 @@ export default function UserIntroSection({ userData }) {
       months[Number(pre.slice(5, 7) - 1)]
     } ${Number(pre.slice(0, 4))}`;
 
-    console.log(Number(pre.slice(5, 7) - 1));
+    // console.log(Number(pre.slice(5, 7) - 1));
 
     return finalDate;
   };

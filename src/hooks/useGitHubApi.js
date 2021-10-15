@@ -1,10 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import { useUserDataContext } from "../context/UserDataContext";
+import GhPolyglot from "gh-polyglot";
 
 export default function useGitHubApi() {
   const [loadingStat, setLoadingStat] = useState(false);
   const { setUserData } = useUserDataContext();
+  const [userLangChart, setUserLangChart] = useState(null);
 
   const requestUserData = async (username, callback = false) => {
     setLoadingStat(true);
@@ -25,5 +27,36 @@ export default function useGitHubApi() {
     }
   };
 
-  return { isLoading: loadingStat, requestUserData };
+  const requestUserPolyglotChart = (username) => {
+    // let user1 = new GhPolyglot(`${username}/autoShop`);
+    let user = new GhPolyglot(username);
+
+    // Repository stats
+    // https://api.github.com/repos/anilrai01/autoShop/languages
+    // Language Status for Particular Repository
+    // user1.repoStats(function (err, stats) {
+    //   console.log(err || stats);
+    // });
+
+    // User stats
+    // https://api.github.com/users/anilrai01/autoShop/repos?per_page=100&page=1
+    if (username !== "") {
+      user.userStats(function (err, stats) {
+        if (err) {
+          console.log("Error: ", err);
+        } else {
+          // console.log("Repository Language Stat: ", stats);
+          setUserLangChart(stats);
+          // return stats;
+        }
+      });
+    }
+  };
+
+  return {
+    isLoading: loadingStat,
+    requestUserData,
+    userLangChart,
+    requestUserPolyglotChart,
+  };
 }
