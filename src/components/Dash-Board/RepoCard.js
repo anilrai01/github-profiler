@@ -1,9 +1,22 @@
 import useMath from "../../hooks/useMath";
+import { useUserDataContext } from "../../context/UserDataContext";
+
 import Star from "../../assets/icons/star.svg";
 import Fork from "../../assets/icons/fork.svg";
+import React from "react";
 
 export default function RepoCard({ data }) {
   const { abstractDate } = useMath();
+  const { userLangChartData } = useUserDataContext();
+
+  const getLangColor = (lang) => {
+    if (userLangChartData.length > 0) {
+      return (
+        userLangChartData.filter((el) => el.label === lang)[0] &&
+        userLangChartData.filter((el) => el.label === lang)[0].color
+      );
+    }
+  };
 
   return (
     <div className="p-2 min-h-repo-card-dim">
@@ -27,7 +40,11 @@ export default function RepoCard({ data }) {
           <div className="flex flex-row justify-between items-center">
             <div className="flex flex-row justify-start items-center">
               {data.language && (
-                <div className="mr-8">
+                <div className="mr-8 flex flex-row items-center">
+                  <div
+                    className="h-2.5 w-2.5 rounded-full mr-2"
+                    style={{ backgroundColor: getLangColor(data.language) }}
+                  />
                   <p className="font-regular-rubik text-xs text-gray-medium">
                     {data.language}
                   </p>
