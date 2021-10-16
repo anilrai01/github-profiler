@@ -25,13 +25,18 @@ module.exports = {
         DEFAULT: colors.trueGray,
         medium: "#9A9A9A",
         label: "#707070",
+        outline: "#C1BABA",
         500: "#4E4E4E",
         100: "#DDDDDD",
       },
       transparent: "transparent",
       current: "currentColor",
       red: colors.red,
-      blue: { DEFAULT: colors.sky, 200: "#F6F8FF" },
+      blue: {
+        DEFAULT: colors.sky,
+        200: "#F6F8FF",
+        medium: "#7288FF",
+      },
       yellow: colors.amber,
       white: colors.white,
     },
@@ -39,6 +44,9 @@ module.exports = {
       "n-10": "-10",
       10: "10",
       20: "20",
+    },
+    boxShadow: {
+      repoBox: "0 2px 6px 0 rgba(0, 0, 0, 0.15)",
     },
     extend: {
       spacing: {
@@ -51,6 +59,8 @@ module.exports = {
         "profile-avatar": "12rem",
         "icon-dim": "1.15rem",
         "icon-dim-sm": "0.9rem",
+        "7-per": "7%",
+        "repo-card-dim": "10.8rem",
       },
     },
   },
