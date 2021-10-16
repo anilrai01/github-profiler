@@ -4,6 +4,7 @@ import { useUserDataContext } from "../context/UserDataContext";
 
 import UserIntroSection from "./Dash-Board/UserIntroSection";
 import LeftDashSection from "./Dash-Board/LeftDashSection";
+import ReportGrid from "./Dash-Board/RepoGrid";
 
 export default function Dashboard({ match }) {
   const { userData } = useUserDataContext();
@@ -16,25 +17,23 @@ export default function Dashboard({ match }) {
   }, [userData, requestUserData, match.params.username]);
 
   return (
-    <div className="px-2 py-2 w-screen h-screen overflow-hidden flex flex-row">
+    <div className="px-2 py-2 w-screen h-screen flex flex-row">
       {/* Left DashNav */}
       <LeftDashSection userData={userData} />
 
       {/* Righ Dash Nav */}
-      <div className="right-dash w-full overflow-hidden">
+      <div className="right-dash flex flex-col w-full h-full">
+        {/* Basic User Introduction */}
         <UserIntroSection userData={userData} />
         {/* Small Nav */}
-        <div className="w-full px-6 py-4 bg-blue-200 rounded-lg">
+        <div className="flex-none flex items-center w-full px-6 py-2 bg-blue-200 rounded-lg mb-2">
           <p className="font-rubik-medium text-lg text-gray-label">
             Top Repositories
           </p>
         </div>
 
-        <div className="w-full h-full overflow-y-auto">
-          <div className="w-full px-4">
-            {/* <pre>{JSON.stringify(userData, undefined, 2)}</pre> */}
-          </div>
-        </div>
+        {/* Repository List Grid */}
+        <ReportGrid userData={userData} />
       </div>
     </div>
   );
