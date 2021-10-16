@@ -8,29 +8,31 @@ import Twitter from "../../assets/icons/twitter.svg";
 import Website from "../../assets/icons/website.svg";
 
 import useGitHubApi from "../../hooks/useGitHubApi";
+import { useUserDataContext } from "../../context/UserDataContext";
 import { Doughnut } from "react-chartjs-2";
 
 export default function LeftDashSection({ userData }) {
-  const { userLangChart, requestUserPolyglotChart } = useGitHubApi();
+  const { requestUserPolyglotChart } = useGitHubApi();
+  const { userLangChartData } = useUserDataContext();
 
   React.useEffect(() => {
-    if (userData && userData.login !== "" && userLangChart.length === 0) {
+    if (userData && userData.login !== "" && userLangChartData.length === 0) {
       requestUserPolyglotChart(userData.login);
     }
-  }, [userData, requestUserPolyglotChart, userLangChart]);
+  }, [userData, requestUserPolyglotChart, userLangChartData]);
 
-  if (userLangChart.length > 0) {
+  if (userLangChartData.length > 0) {
     var data = {
-      labels: userLangChart
+      labels: userLangChartData
         .filter((el, index) => index <= 5)
         .map((el) => el.label),
       datasets: [
         {
           label: "Top Languages in use",
-          data: userLangChart
+          data: userLangChartData
             .filter((el, index) => index <= 5)
             .map((el) => el.value),
-          backgroundColor: userLangChart
+          backgroundColor: userLangChartData
             .filter((el, index) => index <= 5)
             .map((el) => el.color),
           hoverOffset: 4,

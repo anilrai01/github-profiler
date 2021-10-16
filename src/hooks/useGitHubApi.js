@@ -5,8 +5,8 @@ import GhPolyglot from "gh-polyglot";
 
 export default function useGitHubApi() {
   const [loadingStat, setLoadingStat] = useState(false);
-  const { setUserData, setUserRepoData } = useUserDataContext();
-  const [userLangChart, setUserLangChart] = useState([]);
+  const { setUserData, setUserRepoData, setUserLangChartData } =
+    useUserDataContext();
 
   const requestUserData = async (username, callback = false) => {
     setLoadingStat(true);
@@ -45,8 +45,7 @@ export default function useGitHubApi() {
         console.log("Error: ", err);
       } else {
         // console.log("Repository Language Stat: ", stats);
-        setUserLangChart(stats);
-        // return stats;
+        setUserLangChartData(stats);
       }
     });
   };
@@ -70,7 +69,6 @@ export default function useGitHubApi() {
   return {
     isLoading: loadingStat,
     requestUserData,
-    userLangChart,
     requestUserPolyglotChart,
     requestUserRepository,
   };
