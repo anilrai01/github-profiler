@@ -48,6 +48,14 @@ module.exports = {
     boxShadow: {
       repoBox: "0 2px 6px 0 rgba(0, 0, 0, 0.15)",
     },
+    minHeight: {
+      0: "0",
+      "1/4": "25%",
+      "1/2": "50%",
+      "3/4": "75%",
+      full: "100%",
+      "repo-card-dim": "11rem",
+    },
     extend: {
       spacing: {
         "vec-w": "35rem",
@@ -60,7 +68,7 @@ module.exports = {
         "icon-dim": "1.15rem",
         "icon-dim-sm": "0.9rem",
         "7-per": "7%",
-        "repo-card-dim": "10.8rem",
+        "repo-card-dim": "11rem",
       },
     },
   },
