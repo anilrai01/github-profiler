@@ -1,34 +1,10 @@
 import GithubCharacter from "../../assets/icons/github-character.svg";
+import useMath from "../../hooks/useMath";
 
 export default function UserIntroSection({ userData }) {
-  const abstractDate = (data) => {
-    let pre = data.slice(0, 10);
-
-    let months = [
-      "Jan",
-      "Feb",
-      "March",
-      "Apr",
-      "May",
-      "June",
-      "July",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-
-    let finalDate = `${Number(pre.slice(8))} ${
-      months[Number(pre.slice(5, 7) - 1)]
-    } ${Number(pre.slice(0, 4))}`;
-
-    // console.log(Number(pre.slice(5, 7) - 1));
-
-    return finalDate;
-  };
+  const { abstractDate } = useMath();
   return (
-    <div className="w-full px-6 py-3 bg-blue-200 rounded-lg mb-2 flex flex-row justify-between items-center">
+    <div className="flex-none w-full px-6 py-3 bg-blue-200 rounded-lg mb-2 flex flex-row justify-between items-center">
       <div>
         <p className="font-rubik-bold text-4xl text-gray-500">
           Welcome {userData ? userData.name : ""},
