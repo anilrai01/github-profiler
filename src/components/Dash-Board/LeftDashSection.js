@@ -14,10 +14,12 @@ export default function LeftDashSection({ userData }) {
   const { userLangChart, requestUserPolyglotChart } = useGitHubApi();
 
   React.useEffect(() => {
-    requestUserPolyglotChart(userData ? userData.login : "");
-  }, [userData, requestUserPolyglotChart]);
+    if (userData && userData.login !== "" && userLangChart.length === 0) {
+      requestUserPolyglotChart(userData.login);
+    }
+  }, [userData, requestUserPolyglotChart, userLangChart]);
 
-  if (userLangChart !== null) {
+  if (userLangChart.length > 0) {
     var data = {
       labels: userLangChart
         .filter((el, index) => index <= 5)
@@ -141,7 +143,7 @@ export default function LeftDashSection({ userData }) {
                   className="w-icon-dim-sm mr-2"
                   alt="Twitter Hanlde Icon"
                 />
-                <p className="font-rubik-light text-xs text-gray-500">
+                <p className="font-rubik-light text-xs text-gray-500 truncate">
                   {userData.twitter_username}
                 </p>
               </div>
@@ -153,7 +155,7 @@ export default function LeftDashSection({ userData }) {
                   className="w-icon-dim-sm mr-2"
                   alt="Twitter Hanlde Icon"
                 />
-                <p className="font-rubik-light text-xs text-gray-500">
+                <p className="font-rubik-light text-xs text-gray-500 truncate">
                   {userData.blog}
                 </p>
               </div>
