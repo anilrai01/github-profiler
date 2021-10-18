@@ -65,6 +65,7 @@ module.exports = {
         "git-c-w": "10rem",
         "git-c-h": "10rem",
         "profile-avatar": "12rem",
+        "profile-avatar-sm": "10rem",
         "icon-dim": "1.15rem",
         "icon-dim-sm": "0.9rem",
         "7-per": "7%",

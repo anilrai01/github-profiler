@@ -24,7 +24,7 @@ export default function RepoCard({ data }) {
         <div className="w-full h-full px-6 py-5 flex flex-col justify-between shadow-repoBox rounded-lg cursor-pointer">
           <div>
             <div className="flex flex-row justify-between items-center">
-              <h1 className="font-roboto-mono-bold text-xl text-blue-medium">
+              <h1 className="font-roboto-mono-bold text-lg md:text-xl text-blue-medium">
                 {data.name}
               </h1>
               <h1 className="font-rubik-light text-xs text-gray-label border border-gray-outline rounded-2xl px-5 py-1">
@@ -32,7 +32,7 @@ export default function RepoCard({ data }) {
               </h1>
             </div>
 
-            <p className="font-rubik-light text-sm text-gray-label leading-tight py-3">
+            <p className="font-rubik-light text-xs md:text-sm text-gray-label leading-tight py-3">
               {data.description}
             </p>
           </div>

@@ -27,7 +27,7 @@ export default function Dashboard({ match }) {
         <UserIntroSection userData={userData} />
         {/* Small Nav */}
         <div className="flex-none flex items-center w-full px-6 py-2 bg-blue-200 rounded-lg mb-2">
-          <p className="font-rubik-medium text-lg text-gray-label">
+          <p className="font-rubik-medium sm:text-base md:text-lg text-gray-label">
             Top Repositories
           </p>
         </div>

@@ -64,12 +64,12 @@ export default function LeftDashSection({ userData }) {
   };
 
   return (
-    <div className="left-dash h-full w-2/6 md:w-1/4 bg-blue-200 rounded-lg mr-2 overflow-hidden">
+    <div className="left-dash h-full fixed md:relative hidden md:inline w-2/6 md:w-1/4 bg-blue-200 rounded-lg mr-2 overflow-hidden">
       <div className="w-full flex justify-center items-center mt-4">
         <img
           alt={"Profile Avatar"}
           src={userData ? userData.avatar_url : ""}
-          className="w-profile-avatar h-profile-avatar rounded-full object-contain"
+          className="w-profile-avatar-sm h-profile-avatar-sm md:w-profile-avatar md:h-profile-avatar rounded-full object-contain"
         />
       </div>
 
@@ -85,7 +85,7 @@ export default function LeftDashSection({ userData }) {
           {userData ? userData.bio : ""}
         </p>
         {/* Social Following Section */}
-        <div className="flex flex-row justify-around py-5 border-b border-gray-100">
+        <div className="flex flex-col xl:flex-row justify-around py-5 border-b border-gray-100">
           <div className="flex flex-row items-center justify-center">
             <img
               src={Audiences}
@@ -111,7 +111,7 @@ export default function LeftDashSection({ userData }) {
         </div>
         {/* Office | Website | Twitter Handle | Location */}
         <div className="flex flex-col mt-5">
-          <div className="grid grid-cols-2 gap-x-2 gap-y-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-2 gap-y-2">
             {userData && userData.company && (
               <div className="flex flex-row items-center">
                 <img
@@ -137,7 +137,7 @@ export default function LeftDashSection({ userData }) {
               </div>
             )}
           </div>
-          <div className="grid grid-cols-2 gap-1 pt-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 pt-2 lg:pt-4">
             {userData && userData.twitter_username && (
               <div className="flex flex-row items-center">
                 <img
