@@ -24,7 +24,7 @@ export default function RepoCard({ data }) {
         <div className="w-full h-full px-6 py-5 flex flex-col justify-between shadow-repoBox rounded-lg cursor-pointer">
           <div>
             <div className="flex flex-row justify-between items-center">
-              <h1 className="font-roboto-mono-bold text-lg md:text-xl text-blue-medium">
+              <h1 className="font-roboto-mono-bold text-base md:text-xl text-blue-medium w-4/5 truncate">
                 {data.name}
               </h1>
               <h1 className="font-rubik-light text-xs text-gray-label border border-gray-outline rounded-2xl px-5 py-1">
@@ -32,15 +32,15 @@ export default function RepoCard({ data }) {
               </h1>
             </div>
 
-            <p className="font-rubik-light text-xs md:text-sm text-gray-label leading-tight py-3">
+            <p className="font-rubik-light text-xs lg:text-sm text-gray-label leading-tight py-3">
               {data.description}
             </p>
           </div>
 
-          <div className="flex flex-row justify-between items-center">
+          <div className="flex md:flex-row sm:flex-col justify-between items-center">
             <div className="flex flex-row justify-start items-center">
               {data.language && (
-                <div className="mr-8 flex flex-row items-center">
+                <div className="mr-4 lg:mr-8 flex flex-row items-center">
                   <div
                     className="h-2.5 w-2.5 rounded-full mr-2"
                     style={{ backgroundColor: getLangColor(data.language) }}
@@ -70,7 +70,7 @@ export default function RepoCard({ data }) {
               )}
             </div>
 
-            <p className="font-rubik-regular text-xs text-gray-outline">
+            <p className="font-rubik-regular text-xs text-gray-outline truncate md:p-0 sm:pt-2">
               Last updated on : {abstractDate(data.updated_at)}
             </p>
           </div>

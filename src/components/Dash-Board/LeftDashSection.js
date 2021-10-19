@@ -64,8 +64,8 @@ export default function LeftDashSection({ userData }) {
   };
 
   return (
-    <div className="left-dash h-full fixed md:relative hidden md:inline w-2/6 md:w-1/4 bg-blue-200 rounded-lg mr-2 overflow-hidden">
-      <div className="w-full flex justify-center items-center mt-4">
+    <div className="left-dash h-19-per md:h-full md:w-1/4 sm:w-full bg-blue-200 rounded-lg md:mr-2 overflow-hidden flex flex-row md:flex-col">
+      <div className="w-1/5 md:w-full flex justify-center items-center md:mt-4">
         <img
           alt={"Profile Avatar"}
           src={userData ? userData.avatar_url : ""}
@@ -73,19 +73,21 @@ export default function LeftDashSection({ userData }) {
         />
       </div>
 
-      <div className="px-6 h-full flex flex-col">
+      <div className="px-6 md:h-full w-4/5 md:w-full flex flex-row md:flex-col justify-between">
         {/* Name and Bio */}
-        <h1 className="font-rubik-medium text-gray-500 text-xl leading-none mt-3">
-          {userData ? userData.name : ""}
-        </h1>
-        <p className="font-rubik-light text-sm leading-1 text-gray-medium">
-          {userData ? userData.login : ""}
-        </p>
-        <p className="font-rubik-light text-xs text-gray-500 text-justify pt-3 pb-5 border-b border-gray-100">
-          {userData ? userData.bio : ""}
-        </p>
+        <div className="sm:w-3/5 md:w-full">
+          <h1 className="font-rubik-medium text-gray-500 text-xl leading-none mt-3">
+            {userData ? userData.name : ""}
+          </h1>
+          <p className="font-rubik-light text-sm leading-1 text-gray-medium">
+            {userData ? userData.login : ""}
+          </p>
+          <p className="font-rubik-light text-xs text-gray-500 text-justify pt-3 pb-5">
+            {userData ? userData.bio : ""}
+          </p>
+        </div>
         {/* Social Following Section */}
-        <div className="flex flex-col xl:flex-row justify-around py-5 border-b border-gray-100">
+        <div className="md:flex flex-col xl:flex-row justify-around flex-1 md:flex-initial py-5 md:border-b md:border-t border-gray-100 hidden">
           <div className="flex flex-row items-center justify-center">
             <img
               src={Audiences}
@@ -97,7 +99,7 @@ export default function LeftDashSection({ userData }) {
             </p>
             <p className="font-rubik-light text-xs">Followers</p>
           </div>
-          <div className="flex flex-row items-center justify-center">
+          <div className="flex flex-row items-center justify-center pt-2 xl:p-0">
             <img
               src={Follower}
               className="w-icon-dim mr-2"
@@ -110,7 +112,7 @@ export default function LeftDashSection({ userData }) {
           </div>
         </div>
         {/* Office | Website | Twitter Handle | Location */}
-        <div className="flex flex-col mt-5">
+        <div className="sm:flex flex-col mt-5 hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-2 gap-y-2">
             {userData && userData.company && (
               <div className="flex flex-row items-center">
@@ -164,17 +166,18 @@ export default function LeftDashSection({ userData }) {
             )}
           </div>
         </div>
-
-        {/* Chart Section */}
-        <p className="font-rubik-regular text-sm text-gray-500 py-3 mt-3">
-          Top Languages in use:{" "}
-        </p>
-        {/* Doughnut Chart */}
-        {userData && (
-          <div className="bg-white rounded-lg px-2 justify-end">
-            <Doughnut data={data} options={options} />
-          </div>
-        )}
+        <div className="hidden md:inline md:pb-2">
+          {/* Chart Section */}
+          <p className="font-rubik-regular text-sm text-gray-500 py-3 mt-3">
+            Top Languages in use:{" "}
+          </p>
+          {/* Doughnut Chart */}
+          {userData && (
+            <div className="bg-white rounded-lg px-2 justify-end">
+              <Doughnut data={data} options={options} />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

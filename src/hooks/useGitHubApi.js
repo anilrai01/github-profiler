@@ -8,7 +8,11 @@ export default function useGitHubApi() {
   const { setUserData, setUserRepoData, setUserLangChartData } =
     useUserDataContext();
 
-  const requestUserData = async (username, callback = false) => {
+  const requestUserData = async (
+    username,
+    callback = false,
+    rebound = false
+  ) => {
     setLoadingStat(true);
 
     try {
@@ -23,7 +27,8 @@ export default function useGitHubApi() {
       callback && callback();
     } catch (error) {
       setLoadingStat(false);
-      console.log("Error on initial request : ", error);
+      rebound && rebound();
+      // console.log("Error on initial request : ", error.response);
     }
   };
 
