@@ -71,6 +71,9 @@ module.exports = {
         "7-per": "7%",
         "repo-card-dim": "11rem",
       },
+      height: {
+        "19-per": "19%",
+      },
     },
   },
   variants: {
