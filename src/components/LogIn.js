@@ -1,15 +1,9 @@
 import React, { useState } from "react";
-// import GitHubLogo from "../assets/images/github-logo.png";
-
-import useGitHubApi from "../hooks/useGitHubApi";
-import Spinner from "./Spinner";
 import InitialScreenWrapper from "./InitialScreenWrapper";
 
 export default function LogIn(props) {
   const [username, setUserName] = useState("");
   const [error, setError] = useState(false);
-
-  const { isLoading, requestUserData } = useGitHubApi();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -21,11 +15,7 @@ export default function LogIn(props) {
       return;
     }
 
-    requestUserData(
-      username,
-      () => props.history.push(`/dashboard/user/${username}`),
-      () => props.history.push("/404")
-    );
+    props.history.push(`/dashboard/user/${username}`);
     return;
   };
 
@@ -36,7 +26,6 @@ export default function LogIn(props) {
 
   return (
     <React.Fragment>
-      <Spinner visStat={isLoading} />
       <InitialScreenWrapper>
         {/* shadow-md */}
         <form

@@ -6,6 +6,7 @@ export const UserDataContextProvider = (props) => {
   const [userData, setUserData] = useState(null);
   const [userRepoData, setUserRepoData] = useState([]);
   const [userLangChartData, setUserLangChartData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <UserDataContext.Provider
@@ -16,6 +17,8 @@ export const UserDataContextProvider = (props) => {
         setUserRepoData,
         userLangChartData,
         setUserLangChartData,
+        isLoading,
+        setIsLoading,
       }}
     >
       {props.children}

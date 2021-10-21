@@ -7,19 +7,17 @@ import Location from "../../assets/icons/location.svg";
 import Twitter from "../../assets/icons/twitter.svg";
 import Website from "../../assets/icons/website.svg";
 
-import useGitHubApi from "../../hooks/useGitHubApi";
-import { useUserDataContext } from "../../context/UserDataContext";
 import { Doughnut } from "react-chartjs-2";
+import useGitHubUserData from "../../hooks/useGitHubUserData";
 
 export default function LeftDashSection({ userData }) {
-  const { requestUserPolyglotChart } = useGitHubApi();
-  const { userLangChartData } = useUserDataContext();
+  const { gitUserOp, userLangChartData } = useGitHubUserData();
 
   React.useEffect(() => {
     if (userData && userData.login !== "" && userLangChartData.length === 0) {
-      requestUserPolyglotChart(userData.login);
+      gitUserOp.requestUserPolyglotChart(userData.login);
     }
-  }, [userData, requestUserPolyglotChart, userLangChartData]);
+  }, [userData, gitUserOp, userLangChartData]);
 
   if (userLangChartData.length > 0) {
     var data = {

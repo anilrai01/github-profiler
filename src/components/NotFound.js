@@ -1,9 +1,13 @@
 import InitialScreenWrapper from "./InitialScreenWrapper";
 
-export default function NotFound() {
+export default function NotFound(props) {
   return (
     <InitialScreenWrapper>
-      <p>Something went wrong ! Please try again later</p>
+      <p>
+        {props.message
+          ? props.message
+          : "Sorry the requested page is not available right now !"}
+      </p>
     </InitialScreenWrapper>
   );
 }

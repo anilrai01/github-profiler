@@ -1,17 +1,15 @@
 import React from "react";
-import useGitHubApi from "../../hooks/useGitHubApi";
-import { useUserDataContext } from "../../context/UserDataContext";
+import useGitHubUserData from "../../hooks/useGitHubUserData";
 import RepoCard from "./RepoCard";
 
 export default function ReportGrid({ userData }) {
-  const { requestUserRepository } = useGitHubApi();
-  const { userRepoData } = useUserDataContext();
+  const { gitUserOp, userRepoData } = useGitHubUserData();
 
   React.useEffect(() => {
     if (userData && userData.login !== "" && userRepoData.length === 0) {
-      requestUserRepository(userData.login);
+      gitUserOp.requestUserRepository(userData.login);
     }
-  }, [userData, requestUserRepository, userRepoData]);
+  }, [userData, gitUserOp, userRepoData]);
 
   return (
     <div className="flex-grow w-full h-full overflow-y-auto px-3">
